@@ -1,0 +1,68 @@
+# THIS IS COMMENT
+
+### Copyright (c) 2016 Zero, https://www.cognitio.tech
+### Mon Oct 10 17:34:56 2016 
+
+# Permission is hereby granted, free of charge,
+# to any person obtaining a copy of this files.
+# To deal in the Files without restriction,
+# including without limitation the rights to use,
+# copy, modify, merge, publish, distribute, sublicense, 
+# and/or sell, copies of the Files
+#
+# THE FILES IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,...
+# FOR SHORT, YOU TAKE YOUR OWN RISK.
+
+# 1. Check C compiler (Do we have any C compiler in our computer)
+	clang --version	# OR
+	gcc --version	# OR any other C compiler
+
+# 2. If you have clang then
+	# Run the preprocessor stage
+		clang -E file.c
+
+	# Run the preprocessor, parser and type checking stages.
+		clang -fsyntax-only file.c
+
+	# Run the previous stages as well as LLVM generation and optimization stages and target-specific code generation, producing an assembly file.	
+		clang -S file.c
+
+	# Run all of the above, plus the assembler, generating a target ”.o” object file.
+		clang -c file.c
+
+	# If no stage selection option is specified, all stages above are run, and the linker is run to combine the results into an executable or shared library.
+		clang file.c
+
+	# NOTE: you can write output(flag -o) with file.c file.s, file.o too, for example
+		clang file.s -o writeOutputWithFileDotS
+
+	# More info
+		man clang
+	# Also http://clang.llvm.org/docs/CommandGuide/clang.html
+
+# 3. If you have gcc then
+	# Run the preprocessor stage
+		gcc -E file.c
+
+	# Stop after the stage of compilation proper; do not assemble
+		gcc -S file.c
+
+	# Compile or assemble the source files, but do not link. The linking stage simply is not done.
+		gcc -c file.c
+
+	# Do all stuff and linking
+		gcc file.c
+
+	# Write output with flag -o
+		gcc file.c -o writeOutputWithFlagO
+
+	# More info https://gcc.gnu.org/onlinedocs/gcc/Overall-Options.html
+
+# 4. Read the stdio.h file (that depends on your machine. For me, it stored in /usr/include/ directory)
+	vim /usr/include/stdio.h
+
+# 5. Read the cdefs.h file - line 350 (same above. For me, it stored in /usr/include/sys/cdefs.h directory)
+	vim /usr/include/sys/cdefs.h
+
+# 6. Look at example printf.c http://opensource.apple.com//source/Libc/Libc-997.90.3/stdio/FreeBSD/printf.c
+	
